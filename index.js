@@ -20,6 +20,9 @@ class Plugin {
                         if (fn.events && fn.events.length > 0) {
                             fn.events.forEach((event) => {
                                 this.iterateProperties(event, (evKey, event) => {
+                                    if (!event.request) {
+                                        event.request = {};
+                                    }
                                     event.request.template = requestTemplates;
                                 });
                             });
