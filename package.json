@@ -13,7 +13,8 @@
     "url": "https://github.com/ajagnanan/serverless-global-templates.git"
   },
   "scripts": {
-    "publish": "npm version patch && npm publish"
+    "publish": "npm version patch && npm publish",
+    "test": "npm -v"
   },
   "license": "ISC",
   "description": "A plugin to allow modifying request/response templates globally in serverless."
