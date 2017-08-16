@@ -12,8 +12,9 @@ class Plugin {
         try {
             let globalTemplates = this.serverless.service.custom.globalTemplates;
             if (globalTemplates) {
-                let requestTemplates = this.serverless.service.custom.globalTemplates.request;
-                let responseTemplates = this.serverless.service.custom.globalTemplates.response;
+                let requestTemplates = this.serverless.service.custom.globalTemplates.request.template;
+                let responseTemplates = this.serverless.service.custom.globalTemplates.response.template;
+                let responseStatusCodes = this.serverless.service.custom.globalTemplates.response.statusCodes;
 
                 let functions = this.serverless.service.functions;
                 if (functions) {
@@ -34,6 +35,9 @@ class Plugin {
                                         }
                                         if (!event.response.template && responseTemplates) {
                                             event.response.template = responseTemplates;
+                                        }
+                                        if (!event.response.statusCodes && responseStatusCodes) {
+                                            event.response.statusCodes = responseStatusCodes;
                                         }
                                     }
                                 });

@@ -18,7 +18,8 @@ serverless.yml
 custom:
     globalTemplates:
         request:
-            application/json: '${file(serverless.template.request)}'
+            template:
+                application/json: '${file(serverless.template.request)}'
 ```
 
 serverless.template.request
