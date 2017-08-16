@@ -13,17 +13,29 @@ class Plugin {
             let globalTemplates = this.serverless.service.custom.globalTemplates;
             if (globalTemplates) {
                 let requestTemplates = this.serverless.service.custom.globalTemplates.request;
-                let functions = this.serverless.service.functions;
+                let responseTemplates = this.serverless.service.custom.globalTemplates.response;
 
+                let functions = this.serverless.service.functions;
                 if (functions) {
                     this.iterateProperties(functions, (fnKey, fn) => {
                         if (fn.events && fn.events.length > 0) {
                             fn.events.forEach((event) => {
                                 this.iterateProperties(event, (evKey, event) => {
-                                    if (!event.request) {
-                                        event.request = {};
+                                    if (evKey === 'http') {
+                                        if (!event.request) {
+                                            event.request = {};
+                                        }
+                                        if (!event.request.template && requestTemplates) {
+                                            event.request.template = requestTemplates;
+                                        }
+
+                                        if (!event.response) {
+                                            event.response = {};
+                                        }
+                                        if (!event.response.template && responseTemplates) {
+                                            event.response.template = responseTemplates;
+                                        }
                                     }
-                                    event.request.template = requestTemplates;
                                 });
                             });
                         }
@@ -31,7 +43,7 @@ class Plugin {
                 }
             }
         } catch (e) {
-            // ignore
+            console.log('serverless-global-templates error: ' + e);
         }
     }
 
