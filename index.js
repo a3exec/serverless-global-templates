@@ -12,9 +12,9 @@ class Plugin {
         try {
             let globalTemplates = this.serverless.service.custom.globalTemplates;
             if (globalTemplates) {
-                let requestTemplates = this.serverless.service.custom.globalTemplates.request.template;
-                let responseTemplates = this.serverless.service.custom.globalTemplates.response.template;
-                let responseStatusCodes = this.serverless.service.custom.globalTemplates.response.statusCodes;
+                let requestTemplates = this.serverless.service.custom.globalTemplates.request ? this.serverless.service.custom.globalTemplates.request.template : null;
+                let responseTemplates = this.serverless.service.custom.globalTemplates.response ? this.serverless.service.custom.globalTemplates.response.template : null;
+                let responseStatusCodes = this.serverless.service.custom.globalTemplates.response ? this.serverless.service.custom.globalTemplates.response.statusCodes : null;
 
                 let functions = this.serverless.service.functions;
                 if (functions) {

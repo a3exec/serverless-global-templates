@@ -1,6 +1,6 @@
 {
   "name": "serverless-global-templates",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
   "keywords": [
     "hooks",
@@ -13,7 +13,7 @@
     "url": "https://github.com/ajagnanan/serverless-global-templates.git"
   },
   "scripts": {
-    "publish": "npm version patch && npm publish",
+    "published": "npm version patch && npm publish",
     "test": "npm -v"
   },
   "license": "ISC",
