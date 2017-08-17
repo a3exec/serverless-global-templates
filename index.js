@@ -23,20 +23,30 @@ class Plugin {
                             fn.events.forEach((event) => {
                                 this.iterateProperties(event, (evKey, event) => {
                                     if (evKey === 'http') {
-                                        if (!event.request) {
-                                            event.request = {};
-                                        }
-                                        if (!event.request.template && requestTemplates) {
+                                        if (event.request && event.request.template){
+                                            // user defined, ignore
+                                        } else if (requestTemplates) {
+                                            if (!event.request){
+                                                event.request = {};
+                                            }
                                             event.request.template = requestTemplates;
                                         }
 
-                                        if (!event.response) {
-                                            event.response = {};
-                                        }
-                                        if (!event.response.template && responseTemplates) {
+                                        if (event.response && event.response.template){
+                                            // user defined, ignore
+                                        } else if (responseTemplates) {
+                                            if (!event.response){
+                                                event.response = {};
+                                            }
                                             event.response.template = responseTemplates;
                                         }
-                                        if (!event.response.statusCodes && responseStatusCodes) {
+
+                                        if (event.response && event.response.statusCodes){
+                                            // user defined, ignore
+                                        } else if (responseStatusCodes) {
+                                            if (!event.response){
+                                                event.response = {};
+                                            }
                                             event.response.statusCodes = responseStatusCodes;
                                         }
                                     }
