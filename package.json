@@ -1,6 +1,6 @@
 {
   "name": "serverless-global-templates",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "main": "index.js",
   "keywords": [
     "hooks",
@@ -8,9 +8,13 @@
     "serverless"
   ],
   "author": "Adrian Jagnanan",
-  "repository" : {
+  "repository": {
     "type": "git",
-    "url" : "https://github.com/ajagnanan/serverless-global-templates.git"
+    "url": "https://github.com/ajagnanan-org/serverless-global-templates.git"
+  },
+  "scripts": {
+    "published": "npm version patch && npm publish",
+    "test": "npm -v"
   },
   "license": "ISC",
   "description": "A plugin to allow modifying request/response templates globally in serverless."
