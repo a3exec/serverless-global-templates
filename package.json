@@ -10,7 +10,7 @@
   "author": "Adrian Jagnanan",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ajagnanan/serverless-global-templates.git"
+    "url": "https://github.com/ajagnanan-org/serverless-global-templates.git"
   },
   "scripts": {
     "published": "npm version patch && npm publish",
